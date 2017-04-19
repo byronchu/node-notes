@@ -3,12 +3,22 @@ console.log('starting app');
 const fs = require('fs');
 const os = require('os');
 const notes= require('./notes')
+const _= require('lodash');  // lodash module
 
-var res = notes.addNote();
-console.log(res);
 
-var  added = notes.add( 9, -2)
-console.log(added);
+// trying out lodash
+// console.log(_.isString(true));
+// console.log(_.isString('Byron'))
+
+var filteredArray= _.uniq(['byron',1,2,3,'byron',4,3]);
+console.log(filteredArray);
+
+// using required function from notes.js file
+// var res = notes.addNote();
+// console.log(res);
+//
+// var  added = notes.add( 9, -2)
+// console.log(added);
 
 
 
