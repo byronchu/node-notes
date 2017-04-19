@@ -1,9 +1,10 @@
 console.log('starting app');
 
 const fs = require('fs');
-const os = require('os');
-const notes= require('./notes')
 const _= require('lodash');  // lodash module
+
+const notes= require('./notes')
+
 
 
 // trying out lodash
