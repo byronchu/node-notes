@@ -4,11 +4,19 @@ const fs = require('fs');
 const os = require('os');
 const notes= require('./notes')
 
-var user = os.userInfo();
-console.log(user)
+var res = notes.addNote();
+console.log(res);
 
-fs.appendFile('greetings.txt', `Hello ${user.username}! `, function(err){
-  if (err) {
-    console.log('unable to write to file');
-  }
-});
+var  added = notes.add( 9, -2)
+console.log(added);
+
+
+
+// var user = os.userInfo();
+// console.log(user)
+//
+// fs.appendFile('greetings.txt', `Hello ${user.username}! `, function(err){
+//   if (err) {
+//     console.log('unable to write to file');
+//   }
+// });
