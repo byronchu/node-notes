@@ -2,22 +2,27 @@ console.log('starting app');
 
 const fs = require('fs');
 const _= require('lodash');  // lodash module
+const yargs = require('yargs');  //yargs module
 
 const notes= require('./notes')
 
+
+const argv = yargs.argv
 // argument from command line
-var command = process.argv[2]
+var command = argv._[0]
 console.log('command:',command);
+console.log('process',process.argv);
+console.log('Yargs', argv);
 
 
 if (command === 'add') {
-  console.log('adding a note');
+  notes.addNote(argv.title, argv.body);
 } else if (command === 'list') {
-    console.log('listing a note');
+    notes.getAll();
 } else if (command === 'remove') {
-    console.log('remove a note');
+    notes.removeNote(argv.title);
 } else if (command === 'read') {
-    console.log('reading a note');
+    notes.getNote(argv.title);
 } else {
   console.log('command not recognised');
 };
