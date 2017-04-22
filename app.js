@@ -6,7 +6,6 @@ const yargs = require('yargs');  //yargs module
 
 const notes= require('./notes')
 
-
 const argv = yargs.argv
 // argument from command line
 var command = argv._[0]
@@ -19,9 +18,7 @@ if (command === 'add') {
   var note = notes.addNote(argv.title, argv.body);
   if (note) {
     console.log('Note Created');
-    console.log('---------');
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   } else {
     console.log('Note title taken');
   }
@@ -31,7 +28,17 @@ if (command === 'add') {
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? ' note removed' : ' note not found';
     console.log(message);
+
 } else if (command === 'read') {
+    var note = notes.getNote(argv.title);
+    if (note) {
+      console.log('note found');
+      notes.logNote(note);
+    } else {
+      console.log('note not found')
+    }
+
+
     notes.getNote(argv.title);
 } else {
   console.log('command not recognised');
