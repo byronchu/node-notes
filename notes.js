@@ -45,7 +45,7 @@ var removeNote = (title ) => {
   var notes = fetchNotes();
   var filteredNotes = notes.filter((note) => note.title != title);
   saveNotes(filteredNotes);
-  return notes.length === filteredNotes.length
+  return notes.length !== filteredNotes.length
 };
 // console.log(module)
 
