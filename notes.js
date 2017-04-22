@@ -32,11 +32,10 @@ var addNote = (title , body) => {
   };
 
 var getAll = () => {
-  console.log('getting all notes');
-
+  return fetchNotes();
   //  console.log(notes[i].body);
   }
- };
+ 
 
 
 var getNote = (title) => {

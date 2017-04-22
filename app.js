@@ -23,7 +23,10 @@ if (command === 'add') {
     console.log('Note title taken');
   }
 } else if (command === 'list') {
-    notes.getAll();
+    var allNotes = notes.getAll();
+    console.log(`Printing ${allNotes.length} note(s)`);
+    allNotes.forEach((note) => notes.logNote(note));
+
 } else if (command === 'remove') {
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? ' note removed' : ' note not found';
@@ -33,7 +36,7 @@ if (command === 'add') {
     var note = notes.getNote(argv.title);
     if (note) {
       console.log('note found');
-      notes.logNote(note);
+      notes.logNote(note)
     } else {
       console.log('note not found')
     }
